@@ -40,7 +40,7 @@
             <input type="checkbox" v-model="student.isDonePr" />
           </td>
           <td>
-            <a href="#" @click="deleteStudent(student._id)" v-show="getCurrentUser && student.group === getCurrentUser.group">Видалити</a>
+            <a href="#" @click="removeStudent(student._id)" v-show="getCurrentUser && student.group === getCurrentUser.group">Видалити</a>
             <span @click="editStudent(student)" class="edit-icon" v-show="getCurrentUser && student.group === getCurrentUser.group">✏️</span>
           </td>
         </tr>
@@ -93,7 +93,7 @@ export default {
         console.log(error);
       }
     };
-
+    
     const studentsCount = computed(() => {
       return store.getters.getCount;
     });
